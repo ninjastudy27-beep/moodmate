@@ -1,0 +1,533 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2907
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww33660\viewh18020\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="en">\
+<head>\
+  <meta charset="UTF-8">\
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+  <title>MoodMate \'97 A Space for Heavy Thoughts</title>\
+  \
+  <!-- Tailwind CSS CDN -->\
+  <script src="https://cdn.tailwindcss.com"></script>\
+  <!-- Google Fonts: Plus Jakarta Sans -->\
+  <link rel="preconnect" href="https://fonts.googleapis.com">\
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">\
+  <!-- Lucide Icons -->\
+  <script src="https://unpkg.com/lucide@latest"></script>\
+\
+  <style>\
+    body \{\
+      font-family: 'Plus Jakarta Sans', sans-serif;\
+      background-color: #0b0d13;\
+      color: #e2e8f0;\
+      overflow-x: hidden;\
+    \}\
+    \
+    /* Custom Scrollbar */\
+    ::-webkit-scrollbar \{\
+      width: 6px;\
+    \}\
+    ::-webkit-scrollbar-track \{\
+      background: transparent;\
+    \}\
+    ::-webkit-scrollbar-thumb \{\
+      background: rgba(255, 255, 255, 0.1);\
+      border-radius: 9999px;\
+    \}\
+    ::-webkit-scrollbar-thumb:hover \{\
+      background: rgba(255, 255, 255, 0.2);\
+    \}\
+\
+    /* Ambient Lighting Background Glow */\
+    .ambient-glow \{\
+      position: fixed;\
+      top: -20%;\
+      left: 50%;\
+      transform: translateX(-50%);\
+      width: 600px;\
+      height: 600px;\
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(56, 189, 248, 0.05) 50%, rgba(0, 0, 0, 0) 80%);\
+      filter: blur(80px);\
+      z-index: 0;\
+      pointer-events: none;\
+    \}\
+\
+    .glass-card \{\
+      background: rgba(255, 255, 255, 0.025);\
+      border: 1px solid rgba(255, 255, 255, 0.07);\
+      backdrop-filter: blur(16px);\
+    \}\
+    \
+    .glass-input \{\
+      background: rgba(255, 255, 255, 0.04);\
+      border: 1px solid rgba(255, 255, 255, 0.08);\
+      backdrop-filter: blur(8px);\
+    \}\
+    .glass-input:focus \{\
+      border-color: rgba(167, 139, 250, 0.5);\
+      box-shadow: 0 0 15px rgba(167, 139, 250, 0.15);\
+    \}\
+  </style>\
+</head>\
+<body class="min-h-screen flex flex-col justify-between selection:bg-purple-500/30 selection:text-purple-200">\
+\
+  <div class="ambient-glow"></div>\
+\
+  <!-- NAVIGATION BAR -->\
+  <header class="relative z-50 w-full max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">\
+    <div class="flex items-center gap-3 cursor-pointer" onclick="switchPage('intro')">\
+      <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-500/20 to-indigo-400/30 border border-purple-500/40 flex items-center justify-center">\
+        <i data-lucide="smile" class="w-4 h-4 text-purple-300"></i>\
+      </div>\
+      <span class="text-lg font-medium tracking-wide text-zinc-100">MoodMate</span>\
+    </div>\
+\
+    <!-- Navigation Pills -->\
+    <nav class="flex items-center gap-1.5 p-1 glass-card rounded-full border border-white/10 shadow-lg">\
+      <button id="nav-intro" onclick="switchPage('intro')" class="nav-btn px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-300 text-white bg-white/10">\
+        About\
+      </button>\
+      <button id="nav-system" onclick="switchPage('system')" class="nav-btn px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-300 text-zinc-400 hover:text-white">\
+        How It Works\
+      </button>\
+      <button id="nav-chat" onclick="switchPage('chat')" class="nav-btn px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-300 text-zinc-400 hover:text-white flex items-center gap-1.5">\
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>\
+        Sanctuary\
+      </button>\
+    </nav>\
+  </header>\
+\
+  <!-- MAIN CONTAINER (PAGE SWITCHER) -->\
+  <main class="relative z-10 w-full max-w-4xl mx-auto px-6 flex-1 flex flex-col justify-center my-6">\
+\
+    <!-- PAGE 1: INTRODUCTION -->\
+    <section id="page-intro" class="space-y-12 py-8">\
+      <div class="text-center space-y-4 max-w-2xl mx-auto">\
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium glass-card border border-purple-500/20 text-purple-300 mb-2">\
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>\
+          A safe, non-judgmental decompression chamber\
+        </div>\
+        <h1 class="text-4xl sm:text-5xl font-light tracking-tight text-white leading-tight">\
+          A quiet space for <span class="bg-gradient-to-r from-purple-300 via-indigo-200 to-sky-300 bg-clip-text text-transparent font-normal">heavy thoughts.</span>\
+        </h1>\
+        <p class="text-base sm:text-lg text-zinc-400 leading-relaxed font-light">\
+          When life gets overwhelming, we rarely need generic robotic advice. We just need someone who listens\'97a warm, deeply attentive therapist-friend who is all ears for whatever you're carrying.\
+        </p>\
+      </div>\
+\
+      <!-- Core Features Grid -->\
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">\
+        <div class="glass-card p-6 rounded-2xl space-y-3 transition-transform hover:-translate-y-1 duration-300">\
+          <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-300">\
+            <i data-lucide="ear" class="w-5 h-5"></i>\
+          </div>\
+          <h3 class="text-zinc-100 font-medium">Attentive Listening</h3>\
+          <p class="text-zinc-400 text-sm leading-relaxed font-light">\
+            No rush to "fix" you. MoodMate absorbs every nuance of your feelings and reflects them with patient, human empathy.\
+          </p>\
+        </div>\
+\
+        <div class="glass-card p-6 rounded-2xl space-y-3 transition-transform hover:-translate-y-1 duration-300">\
+          <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-300">\
+            <i data-lucide="shield-check" class="w-5 h-5"></i>\
+          </div>\
+          <h3 class="text-zinc-100 font-medium">Completely Private</h3>\
+          <p class="text-zinc-400 text-sm leading-relaxed font-light">\
+            Your API key stays exclusively in your browser storage. Your vents never touch an intermediary database.\
+          </p>\
+        </div>\
+\
+        <div class="glass-card p-6 rounded-2xl space-y-3 transition-transform hover:-translate-y-1 duration-300">\
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-300">\
+            <i data-lucide="heart-handshake" class="w-5 h-5"></i>\
+          </div>\
+          <h3 class="text-zinc-100 font-medium">Therapist-Friend Tone</h3>\
+          <p class="text-zinc-400 text-sm leading-relaxed font-light">\
+            Warm, validating, and conversational. Converses naturally, asks gentle questions, and walks with you through the storm.\
+          </p>\
+        </div>\
+      </div>\
+\
+      <!-- Action Button -->\
+      <div class="flex justify-center pt-4">\
+        <button onclick="switchPage('chat')" class="px-8 py-3.5 rounded-full bg-white text-zinc-950 font-medium text-sm hover:bg-zinc-200 transition-all shadow-[0_0_30px_rgba(255,255,255,0.15)] flex items-center gap-2">\
+          <span>Talk to MoodMate</span>\
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>\
+        </button>\
+      </div>\
+    </section>\
+\
+    <!-- PAGE 2: HOW IT WORKS -->\
+    <section id="page-system" class="space-y-10 py-8 hidden">\
+      <div class="text-center space-y-3 max-w-xl mx-auto">\
+        <h2 class="text-3xl font-light text-white tracking-tight">The Science of Feeling Heard</h2>\
+        <p class="text-zinc-400 text-sm font-light">How MoodMate crafts responses that genuinely feel human, comforting, and authentic.</p>\
+      </div>\
+\
+      <div class="space-y-4">\
+        <!-- Step 1 -->\
+        <div class="glass-card p-6 rounded-2xl flex flex-col sm:flex-row gap-5 items-start sm:items-center justify-between border-l-2 border-l-purple-400">\
+          <div class="space-y-1 max-w-lg">\
+            <span class="text-xs uppercase tracking-widest text-purple-400 font-semibold">01 / Emotional Validation</span>\
+            <h3 class="text-lg font-medium text-white">Active Listening Over Unsolicited Advice</h3>\
+            <p class="text-sm text-zinc-400 font-light leading-relaxed">\
+              Most AI models rush to offer 5-bullet checklists. MoodMate is tuned specifically to validate emotional fatigue first, acknowledge pain, and make you feel truly recognized.\
+            </p>\
+          </div>\
+          <div class="p-3 bg-white/5 rounded-xl text-zinc-400 border border-white/5">\
+            <i data-lucide="check-circle-2" class="w-6 h-6 text-purple-400"></i>\
+          </div>\
+        </div>\
+\
+        <!-- Step 2 -->\
+        <div class="glass-card p-6 rounded-2xl flex flex-col sm:flex-row gap-5 items-start sm:items-center justify-between border-l-2 border-l-indigo-400">\
+          <div class="space-y-1 max-w-lg">\
+            <span class="text-xs uppercase tracking-widest text-indigo-400 font-semibold">02 / Dynamic Memory & Context</span>\
+            <h3 class="text-lg font-medium text-white">Holding Space for the Whole Conversation</h3>\
+            <p class="text-sm text-zinc-400 font-light leading-relaxed">\
+              MoodMate keeps conversational continuity. If you mention feeling tired at the start and heartbroken at the end, it connects the threads just like a caring friend would over tea.\
+            </p>\
+          </div>\
+          <div class="p-3 bg-white/5 rounded-xl text-zinc-400 border border-white/5">\
+            <i data-lucide="git-commit" class="w-6 h-6 text-indigo-400"></i>\
+          </div>\
+        </div>\
+\
+        <!-- Step 3 -->\
+        <div class="glass-card p-6 rounded-2xl flex flex-col sm:flex-row gap-5 items-start sm:items-center justify-between border-l-2 border-l-sky-400">\
+          <div class="space-y-1 max-w-lg">\
+            <span class="text-xs uppercase tracking-widest text-sky-400 font-semibold">03 / Powered Directly by Gemini 2.5 Flash</span>\
+            <h3 class="text-lg font-medium text-white">Ultra-low Latency & Deep Nuance</h3>\
+            <p class="text-sm text-zinc-400 font-light leading-relaxed">\
+              Leverages Google's language architecture with high emotional temperature settings, allowing for organic phrasing, warm pauses, and human conversational cadence.\
+            </p>\
+          </div>\
+          <div class="p-3 bg-white/5 rounded-xl text-zinc-400 border border-white/5">\
+            <i data-lucide="cpu" class="w-6 h-6 text-sky-400"></i>\
+          </div>\
+        </div>\
+      </div>\
+\
+      <!-- Helpful Disclaimer -->\
+      <div class="glass-card p-5 rounded-xl border border-amber-500/20 bg-amber-500/5 text-amber-200/80 text-xs leading-relaxed flex items-center gap-3">\
+        <i data-lucide="info" class="w-5 h-5 flex-shrink-0 text-amber-400"></i>\
+        <span>MoodMate is a supportive peer companion for venting and decompression. If you are experiencing an acute mental health emergency, please reach out to trusted local crisis hotlines or medical professionals.</span>\
+      </div>\
+    </section>\
+\
+    <!-- PAGE 3: THE MAIN CHATBOT (THE SANCTUARY) -->\
+    <section id="page-chat" class="space-y-4 hidden flex-1 flex flex-col h-[75vh]">\
+      \
+      <!-- Top Utility Bar: API Key Status & Clear Chat -->\
+      <div class="flex items-center justify-between px-3 py-2 text-xs text-zinc-400">\
+        <div class="flex items-center gap-2">\
+          <span id="api-status-dot" class="w-2 h-2 rounded-full bg-red-400"></span>\
+          <span id="api-status-text">No Gemini API key added</span>\
+          <button onclick="toggleApiKeyModal()" class="text-purple-400 hover:text-purple-300 underline ml-2">Configure Key</button>\
+        </div>\
+        <button onclick="clearChat()" class="hover:text-zinc-200 transition-colors flex items-center gap-1">\
+          <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>\
+          <span>Clear Vent</span>\
+        </button>\
+      </div>\
+\
+      <!-- Chat Stream Container -->\
+      <div id="chat-messages" class="flex-1 overflow-y-auto space-y-4 p-4 glass-card rounded-2xl border border-white/5 shadow-inner">\
+        <!-- Initial Welcome Message -->\
+        <div class="flex items-start gap-3">\
+          <div class="w-7 h-7 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0 text-purple-300 text-xs font-medium">M</div>\
+          <div class="glass-card p-4 rounded-2xl rounded-tl-sm max-w-xl text-zinc-200 text-sm leading-relaxed border border-white/5">\
+            Hey there, I'm MoodMate. I'm right here with you. Take a deep breath. Whatever is on your mind\'97no matter how messy, raw, or heavy it feels\'97you can vent it all out here. What's been going on?\
+          </div>\
+        </div>\
+      </div>\
+\
+      <!-- Quick Prompt Suggestions -->\
+      <div id="quick-prompts" class="flex gap-2 overflow-x-auto pb-1 text-xs">\
+        <button onclick="sendQuickPrompt('I feel so exhausted and overwhelmed by everything today...')" class="glass-card px-3 py-1.5 rounded-full text-zinc-400 hover:text-zinc-200 border border-white/5 whitespace-nowrap transition-colors">\
+          \uc0\u9729 \u65039  Feeling completely exhausted\
+        </button>\
+        <button onclick="sendQuickPrompt('I had a really difficult conversation and I can\\'t stop replaying it...')" class="glass-card px-3 py-1.5 rounded-full text-zinc-400 hover:text-zinc-200 border border-white/5 whitespace-nowrap transition-colors">\
+          \uc0\u55357 \u56493  Replaying a hard conversation\
+        </button>\
+        <button onclick="sendQuickPrompt('I just feel lonely and like nobody really understands what I am going through.')" class="glass-card px-3 py-1.5 rounded-full text-zinc-400 hover:text-zinc-200 border border-white/5 whitespace-nowrap transition-colors">\
+          \uc0\u55358 \u56640  Feeling misunderstood\
+        </button>\
+      </div>\
+\
+      <!-- User Input Box -->\
+      <div class="relative">\
+        <textarea id="user-input" rows="2" placeholder="Let it all out here... (Press Enter to send, Shift+Enter for new line)" class="w-full glass-input rounded-2xl px-4 py-3 pr-14 text-sm text-zinc-100 placeholder-zinc-500 resize-none outline-none transition-all"></textarea>\
+        <button id="send-btn" onclick="sendMessage()" class="absolute right-3 bottom-3.5 p-2 rounded-xl bg-purple-600/80 hover:bg-purple-500 text-white transition-all shadow-md flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed">\
+          <i data-lucide="send" class="w-4 h-4"></i>\
+        </button>\
+      </div>\
+    </section>\
+  </main>\
+\
+  <!-- API KEY MODAL DIALOG -->\
+  <div id="api-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">\
+    <div class="glass-card max-w-md w-full p-6 rounded-3xl border border-white/10 space-y-4 shadow-2xl">\
+      <div class="flex items-center justify-between">\
+        <h3 class="text-lg font-medium text-white flex items-center gap-2">\
+          <i data-lucide="key" class="w-4 h-4 text-purple-400"></i>\
+          Connect Google Gemini\
+        </h3>\
+        <button onclick="toggleApiKeyModal()" class="text-zinc-400 hover:text-white">\
+          <i data-lucide="x" class="w-5 h-5"></i>\
+        </button>\
+      </div>\
+      <p class="text-xs text-zinc-400 leading-relaxed font-light">\
+        To chat, enter your personal Google Gemini API key. It is saved only in your local browser storage (<code class="text-purple-300">localStorage</code>) and is never routed to any external database.\
+      </p>\
+      <input type="password" id="api-key-input" placeholder="AIzaSy..." class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 outline-none">\
+      <div class="flex items-center justify-between pt-2">\
+        <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-xs text-purple-400 hover:text-purple-300 flex items-center gap-1">\
+          <span>Get free key</span>\
+          <i data-lucide="external-link" class="w-3 h-3"></i>\
+        </a>\
+        <div class="flex gap-2">\
+          <button onclick="toggleApiKeyModal()" class="px-3.5 py-1.5 rounded-lg text-xs text-zinc-400 hover:text-white">Cancel</button>\
+          <button onclick="saveApiKey()" class="px-4 py-1.5 rounded-lg text-xs bg-purple-600 hover:bg-purple-500 text-white font-medium transition-all">Save Key</button>\
+        </div>\
+      </div>\
+    </div>\
+  </div>\
+\
+  <!-- FOOTER -->\
+  <footer class="relative z-10 w-full text-center py-4 text-xs text-zinc-500 font-light">\
+    MoodMate \'97 Designed with calm intention.\
+  </footer>\
+\
+  <!-- APPLICATION LOGIC -->\
+  <script>\
+    // Initialize Lucide Icons\
+    lucide.createIcons();\
+\
+    // App State\
+    let conversationHistory = [];\
+    const SYSTEM_PERSONA = `\
+You are MoodMate, a compassionate, emotionally intelligent, and deeply comforting therapist-friend.\
+The user is venting their feelings, anxieties, grief, frustrations, or heartaches to you.\
+\
+Your guidelines:\
+1. Be a warm, empathetic listener first. Always validate their emotions before offering any perspective.\
+2. Sound like a real, understanding friend who is educated in empathetic communication, NOT a sterile textbook or corporate AI.\
+3. Keep responses authentic, human-sized, and organic (avoid giant lists, bullet points, or patronizing cliches like "It is important to remember").\
+4. Ask gentle, open-ended questions when appropriate to help them untangle what they are carrying.\
+5. Never judge. Be a haven of calm, patience, and warmth.\
+    `.trim();\
+\
+    // Page Switching Logic\
+    function switchPage(pageId) \{\
+      const pages = ['intro', 'system', 'chat'];\
+      pages.forEach(p => \{\
+        const pageEl = document.getElementById(`page-$\{p\}`);\
+        const navBtn = document.getElementById(`nav-$\{p\}`);\
+        if (p === pageId) \{\
+          pageEl.classList.remove('hidden');\
+          navBtn.classList.add('bg-white/10', 'text-white');\
+          navBtn.classList.remove('text-zinc-400');\
+        \} else \{\
+          pageEl.classList.add('hidden');\
+          navBtn.classList.remove('bg-white/10', 'text-white');\
+          navBtn.classList.add('text-zinc-400');\
+        \}\
+      \});\
+      lucide.createIcons();\
+    \}\
+\
+    // Modal & API Key Management\
+    function toggleApiKeyModal() \{\
+      const modal = document.getElementById('api-modal');\
+      modal.classList.toggle('hidden');\
+    \}\
+\
+    function checkApiKey() \{\
+      const key = localStorage.getItem('moodmate_gemini_key') || localStorage.getItem('haven_gemini_key');\
+      const dot = document.getElementById('api-status-dot');\
+      const text = document.getElementById('api-status-text');\
+      const keyInput = document.getElementById('api-key-input');\
+\
+      if (key && key.trim().length > 0) \{\
+        dot.className = "w-2 h-2 rounded-full bg-emerald-400";\
+        text.innerText = "Gemini Key Connected";\
+        keyInput.value = key;\
+        return true;\
+      \} else \{\
+        dot.className = "w-2 h-2 rounded-full bg-red-400";\
+        text.innerText = "No Gemini API key added";\
+        return false;\
+      \}\
+    \}\
+\
+    function saveApiKey() \{\
+      const input = document.getElementById('api-key-input').value.trim();\
+      if (input) \{\
+        localStorage.setItem('moodmate_gemini_key', input);\
+        checkApiKey();\
+        toggleApiKeyModal();\
+      \}\
+    \}\
+\
+    // Chat Mechanics\
+    function sendQuickPrompt(text) \{\
+      document.getElementById('user-input').value = text;\
+      sendMessage();\
+    \}\
+\
+    async function sendMessage() \{\
+      const userInput = document.getElementById('user-input');\
+      const prompt = userInput.value.trim();\
+      const apiKey = localStorage.getItem('moodmate_gemini_key') || localStorage.getItem('haven_gemini_key');\
+\
+      if (!prompt) return;\
+\
+      if (!apiKey) \{\
+        toggleApiKeyModal();\
+        return;\
+      \}\
+\
+      // Append User Message to UI\
+      appendMessage('user', prompt);\
+      userInput.value = '';\
+      \
+      // Add to context history\
+      conversationHistory.push(\{\
+        role: "user",\
+        parts: [\{ text: prompt \}]\
+      \});\
+\
+      // Show typing indicator\
+      const typingId = showTypingIndicator();\
+\
+      try \{\
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=$\{apiKey\}`, \{\
+          method: 'POST',\
+          headers: \{ 'Content-Type': 'application/json' \},\
+          body: JSON.stringify(\{\
+            systemInstruction: \{\
+              parts: [\{ text: SYSTEM_PERSONA \}]\
+            \},\
+            contents: conversationHistory,\
+            generationConfig: \{\
+              temperature: 0.85,\
+              maxOutputTokens: 650\
+            \}\
+          \})\
+        \});\
+\
+        const data = await response.json();\
+        removeTypingIndicator(typingId);\
+\
+        if (data.error) \{\
+          throw new Error(data.error.message || "Failed to generate response.");\
+        \}\
+\
+        const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "I'm listening, and I'm right here with you.";\
+        \
+        // Add to history and UI\
+        conversationHistory.push(\{\
+          role: "model",\
+          parts: [\{ text: reply \}]\
+        \});\
+        appendMessage('model', reply);\
+\
+      \} catch (err) \{\
+        removeTypingIndicator(typingId);\
+        appendMessage('model', `I'm having trouble connecting right now ($\{err.message\}). Please ensure your Gemini API key is valid.`);\
+      \}\
+    \}\
+\
+    function appendMessage(sender, text) \{\
+      const chatMessages = document.getElementById('chat-messages');\
+      const msgDiv = document.createElement('div');\
+      \
+      if (sender === 'user') \{\
+        msgDiv.className = "flex items-start justify-end gap-3";\
+        msgDiv.innerHTML = `\
+          <div class="glass-card bg-purple-500/10 border-purple-500/20 p-4 rounded-2xl rounded-tr-sm max-w-xl text-zinc-100 text-sm leading-relaxed">\
+            $\{escapeHtml(text)\}\
+          </div>\
+          <div class="w-7 h-7 rounded-full bg-white/10 border border-white/20 flex items-center justify-center flex-shrink-0 text-zinc-300 text-xs">You</div>\
+        `;\
+      \} else \{\
+        msgDiv.className = "flex items-start gap-3";\
+        msgDiv.innerHTML = `\
+          <div class="w-7 h-7 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0 text-purple-300 text-xs font-medium">M</div>\
+          <div class="glass-card p-4 rounded-2xl rounded-tl-sm max-w-xl text-zinc-200 text-sm leading-relaxed border border-white/5">\
+            $\{formatMoodMateResponse(text)\}\
+          </div>\
+        `;\
+      \}\
+      chatMessages.appendChild(msgDiv);\
+      chatMessages.scrollTop = chatMessages.scrollHeight;\
+    \}\
+\
+    function showTypingIndicator() \{\
+      const chatMessages = document.getElementById('chat-messages');\
+      const typingDiv = document.createElement('div');\
+      const id = 'typing-' + Date.now();\
+      typingDiv.id = id;\
+      typingDiv.className = "flex items-start gap-3";\
+      typingDiv.innerHTML = `\
+        <div class="w-7 h-7 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0 text-purple-300 text-xs font-medium">M</div>\
+        <div class="glass-card px-4 py-3 rounded-2xl rounded-tl-sm text-zinc-400 text-xs flex items-center gap-1.5 border border-white/5">\
+          <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-bounce"></span>\
+          <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-bounce [animation-delay:0.2s]"></span>\
+          <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-bounce [animation-delay:0.4s]"></span>\
+          <span class="ml-1 text-zinc-500">listening gently...</span>\
+        </div>\
+      `;\
+      chatMessages.appendChild(typingDiv);\
+      chatMessages.scrollTop = chatMessages.scrollHeight;\
+      return id;\
+    \}\
+\
+    function removeTypingIndicator(id) \{\
+      const el = document.getElementById(id);\
+      if (el) el.remove();\
+    \}\
+\
+    function clearChat() \{\
+      conversationHistory = [];\
+      const chatMessages = document.getElementById('chat-messages');\
+      chatMessages.innerHTML = `\
+        <div class="flex items-start gap-3">\
+          <div class="w-7 h-7 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0 text-purple-300 text-xs font-medium">M</div>\
+          <div class="glass-card p-4 rounded-2xl rounded-tl-sm max-w-xl text-zinc-200 text-sm leading-relaxed border border-white/5">\
+            The slate is clean. Whenever you are ready, I'm right here.\
+          </div>\
+        </div>\
+      `;\
+    \}\
+\
+    // Helper functions\
+    function escapeHtml(str) \{\
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;").replace(/\\n/g, '<br/>');\
+    \}\
+\
+    function formatMoodMateResponse(str) \{\
+      return escapeHtml(str).replace(/(?:\\r\\n|\\r|\\n)/g, '<br class="my-1.5"/>');\
+    \}\
+\
+    // Event listener for Enter Key\
+    document.getElementById('user-input').addEventListener('keydown', (e) => \{\
+      if (e.key === 'Enter' && !e.shiftKey) \{\
+        e.preventDefault();\
+        sendMessage();\
+      \}\
+    \});\
+\
+    // Check key on boot\
+    checkApiKey();\
+  </script>\
+</body>\
+</html>\
+   }
